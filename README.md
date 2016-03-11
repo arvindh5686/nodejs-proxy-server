@@ -4,7 +4,7 @@ This is a Proxy Server for Node.js submitted as the [pre-work](http://courses.co
 
 Time spent: [Write the number of hours you spend here]
 
-Completed:
+## Completed:
 
 * [X] Required: Requests to port `8000` are echoed back with the same HTTP headers and body
 * [X] Required: Requests/reponses are proxied to/from the destination server
@@ -17,8 +17,8 @@ Completed:
 * [] Optional: Supports HTTPS
 * [X] Optional: `-h` argument prints CLI API
 
-Walkthrough Gif:
-[Add walkthrough.gif to the project root]
+## Walkthrough Gif:
+
 
 ![Video Walkthrough](nodejs-proxy-server.gif)
 
