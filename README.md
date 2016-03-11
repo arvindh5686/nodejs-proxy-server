@@ -20,9 +20,7 @@ Completed:
 Walkthrough Gif:
 [Add walkthrough.gif to the project root]
 
-![Video Walkthrough](walkthrough.gif)
-
-Note: to embed the gif file, just check your gif file into your repo and update the name of the file above.
+![Video Walkthrough](nodejs-proxy-server.gif)
 
 ## Starting the Server
 
