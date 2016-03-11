@@ -12,7 +12,7 @@ let http = require('http'),
 
 	fs = require('fs'),
 	child_process = require('child_process'),
-	stream = require('stream');
+	Logger = require('./utils/logger');
 
 
 let host = argv.host || '127.0.0.1',
@@ -23,13 +23,7 @@ let host = argv.host || '127.0.0.1',
 	execCommand = argv.exec || 'ls',
 	logLevel = argv.logLevel || 2;
 
-let log = function(level, msg) {
-	if (level != logLevel) return;
-
-	if (typeof msg ==='string' || msg instanceof stream.Stream) {
-		logStream.write(msg);
-	}
-}
+let logger = new Logger(logLevel, logStream);
 
 let server = http.createServer((req, res) => {
 	for (let header in req.headers) {
@@ -39,8 +33,8 @@ let server = http.createServer((req, res) => {
 }).listen(8000);
 
 http.createServer((req, res) => {
-	log(3, '\n\n\n' + JSON.stringify(req.headers))
-	req.pipe(logStream)
+	logger.log(5, JSON.stringify(req.headers));
+	logger.log(5, req);
 
 	destinationUrl = req.headers['x-destination-url'] || destinationUrl
 
@@ -50,9 +44,10 @@ http.createServer((req, res) => {
     	method: req.method
   	}
 
-  	let downstreamResponse = req.pipe(request(options))
-	logStream.write(JSON.stringify(downstreamResponse.headers))
-	downstreamResponse.pipe(logStream)
+  	let downstreamResponse = req.pipe(request(options));
+	logger.log(5, JSON.stringify(downstreamResponse.headers));
+	logger.log(5, downstreamResponse);
+	//downstreamResponse.pipe(logStream)
 	downstreamResponse.pipe(res)
 }).listen(8001);
 
