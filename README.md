@@ -1,5 +1,3 @@
-# nodejs-proxy-server
-
 # Proxy Server
 
 This is a Proxy Server for Node.js submitted as the [pre-work](http://courses.codepath.com/snippets/intro_to_nodejs/prework) requirement for CodePath.
@@ -45,10 +43,6 @@ The host of the destination server. Defaults to `127.0.0.1`.
 ##### `--port`
 
 The port of the destination server. Defaults to `80` or `8000` when a host is not specified.
-
-##### `--url`
-
-A single url that overrides the above. E.g., `http://www.google.com`
 
 ##### `--logfile`
 
