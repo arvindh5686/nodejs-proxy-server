@@ -21,8 +21,9 @@ logger.prototype.log = function(level, msg) {
 	if (level < this.logLevel) return;
 
 	if (typeof msg === 'string') {
-		this.logStream.write("\n\n" + this.severity[level] + ': ' + msg + "\n\n");
+		this.logStream.write("\n\n" + this.severity[level] + ': ' + msg);
 	} else if(msg instanceof stream.Stream) {
+		this.logStream.write("\n\n");
 		msg.pipe(this.logStream);
 	}
 }

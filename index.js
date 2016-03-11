@@ -17,7 +17,7 @@ let http = require('http'),
 
 let host = argv.host || '127.0.0.1',
 	protocol = 'http://',
-	port = argv.port || (argv.host === '127.0.0.1' ? 8000 : 80),
+	port = argv.port || (host === '127.0.0.1' ? 8000 : 80),
 	destinationUrl = protocol + host + ':' + port,
 	logStream = argv.logFile ? fs.createWriteStream(argv.logFile) : process.stdout,
 	execCommand = argv.exec || 'ls',
@@ -33,7 +33,7 @@ let server = http.createServer((req, res) => {
 }).listen(8000);
 
 http.createServer((req, res) => {
-	logger.log(5, JSON.stringify(req.headers));
+	logger.log(5, 'Request Headers: ' + JSON.stringify(req.headers));
 	logger.log(5, req);
 
 	destinationUrl = req.headers['x-destination-url'] || destinationUrl
