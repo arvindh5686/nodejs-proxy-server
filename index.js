@@ -54,13 +54,13 @@ http.createServer((req, res) => {
 var childProcess = child_process.exec(execCommand);
 
 childProcess.stdout.on('data', (data) => {
-  console.log(`stdout: ${data}`);
+  logger.log(5, `stdout: ${data}`);
 });
 
 childProcess.stderr.on('data', (data) => {
-  console.log(`stderr: ${data}`);
+  logger.log(5, `stderr: ${data}`);
 });
 
 childProcess.on('close', (code) => {
-  console.log(`child process exited with code ${code}`);
+  logger.log(5, `child process exited with code ${code}`);
 });
