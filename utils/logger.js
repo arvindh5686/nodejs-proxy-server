@@ -21,10 +21,10 @@ logger.prototype.log = function(level, msg) {
 	if (level < this.logLevel) return;
 
 	if (typeof msg === 'string') {
-		this.logStream.write("\n\n" + this.severity[level] + ': ' + msg);
+		this.logStream.write("\n" + this.severity[level] + ': ' + msg + "\n");
 	} else if(msg instanceof stream.Stream) {
-		this.logStream.write("\n\n");
 		msg.pipe(this.logStream, {end: false});
+		this.logStream.write("\n");
 	}
 }
 

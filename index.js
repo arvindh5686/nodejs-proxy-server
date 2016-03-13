@@ -54,7 +54,7 @@ http.createServer((req, res) => {
 var childProcess = child_process.exec(execCommand);
 
 childProcess.stdout.on('data', (data) => {
-  logger.log(5, `stdout: ${data}`);
+  logger.log(5, `Executing command ${execCommand} : \n ${data}`);
 });
 
 childProcess.stderr.on('data', (data) => {
