@@ -20,7 +20,7 @@ Time spent: [Write the number of hours you spend here]
 ## Walkthrough Gif:
 
 
-![Video Walkthrough](nodejs-proxy-server.gif)
+![Video Walkthrough](nodejs-proxy-server-v1.gif)
 
 ## Starting the Server
 
